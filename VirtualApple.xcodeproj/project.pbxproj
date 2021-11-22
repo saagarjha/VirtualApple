@@ -1,0 +1,242 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		493243FF2749D9F0003E8999 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493243FE2749D9F0003E8999 /* AppDelegate.swift */; };
+		493244052749D9F1003E8999 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 493244042749D9F1003E8999 /* Assets.xcassets */; };
+		495E100A2856AEE80034F53F /* ConcurrencyShims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E10092856AEE80034F53F /* ConcurrencyShims.swift */; };
+		4969636D274C98AE00339822 /* FixedSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969636C274C98AE00339822 /* FixedSize.swift */; };
+		49D086FA274A7C3400859181 /* InstallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D086F9274A7C3400859181 /* InstallViewController.swift */; };
+		49D08701274BBD6300859181 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D08700274BBD6300859181 /* Menu.swift */; };
+		49D08703274BBDF000859181 /* LabeledSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D08702274BBDF000859181 /* LabeledSlider.swift */; };
+		49D08705274BBE2A00859181 /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D08704274BBE2A00859181 /* Toolbar.swift */; };
+		49F82D422749E80C004D986D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F82D412749E80C004D986D /* main.swift */; };
+		49F82D46274A0609004D986D /* VirtualMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F82D45274A0609004D986D /* VirtualMachine.swift */; };
+		49F82D48274A0CC5004D986D /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F82D47274A0CC5004D986D /* WindowController.swift */; };
+		49F82D4C274A0D98004D986D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F82D4B274A0D98004D986D /* ViewController.swift */; };
+		49F82D4E274A21C5004D986D /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F82D4D274A21C5004D986D /* ConfigurationViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		493243FB2749D9F0003E8999 /* VirtualApple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualApple.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		493243FE2749D9F0003E8999 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		493244042749D9F1003E8999 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		493244092749D9F1003E8999 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4932440A2749D9F1003E8999 /* VirtualApple.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VirtualApple.entitlements; sourceTree = "<group>"; };
+		495E10092856AEE80034F53F /* ConcurrencyShims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrencyShims.swift; sourceTree = "<group>"; };
+		4969636C274C98AE00339822 /* FixedSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedSize.swift; sourceTree = "<group>"; };
+		49D086F9274A7C3400859181 /* InstallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallViewController.swift; sourceTree = "<group>"; };
+		49D086FB274BBA3700859181 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		49D086FC274BBA4A00859181 /* Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
+		49D086FD274BBA6800859181 /* Deployment.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Deployment.xcconfig; sourceTree = "<group>"; };
+		49D086FE274BBA8400859181 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		49D086FF274BBA9C00859181 /* VirtualApple.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = VirtualApple.xcconfig; sourceTree = "<group>"; };
+		49D08700274BBD6300859181 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		49D08702274BBDF000859181 /* LabeledSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledSlider.swift; sourceTree = "<group>"; };
+		49D08704274BBE2A00859181 /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
+		49F82D412749E80C004D986D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		49F82D45274A0609004D986D /* VirtualMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualMachine.swift; sourceTree = "<group>"; };
+		49F82D47274A0CC5004D986D /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		49F82D4B274A0D98004D986D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		49F82D4D274A21C5004D986D /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		493243F82749D9F0003E8999 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		493243F22749D9F0003E8999 = {
+			isa = PBXGroup;
+			children = (
+				493243FC2749D9F0003E8999 /* Products */,
+				493243FD2749D9F0003E8999 /* VirtualApple */,
+			);
+			sourceTree = "<group>";
+		};
+		493243FC2749D9F0003E8999 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				493243FB2749D9F0003E8999 /* VirtualApple.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		493243FD2749D9F0003E8999 /* VirtualApple */ = {
+			isa = PBXGroup;
+			children = (
+				4932440A2749D9F1003E8999 /* VirtualApple.entitlements */,
+				493244092749D9F1003E8999 /* Info.plist */,
+				493243FE2749D9F0003E8999 /* AppDelegate.swift */,
+				495E10092856AEE80034F53F /* ConcurrencyShims.swift */,
+				49F82D4D274A21C5004D986D /* ConfigurationViewController.swift */,
+				4969636C274C98AE00339822 /* FixedSize.swift */,
+				49D086F9274A7C3400859181 /* InstallViewController.swift */,
+				49D08702274BBDF000859181 /* LabeledSlider.swift */,
+				49F82D412749E80C004D986D /* main.swift */,
+				49D08700274BBD6300859181 /* Menu.swift */,
+				49D08704274BBE2A00859181 /* Toolbar.swift */,
+				49F82D4B274A0D98004D986D /* ViewController.swift */,
+				49F82D45274A0609004D986D /* VirtualMachine.swift */,
+				49F82D47274A0CC5004D986D /* WindowController.swift */,
+				493244042749D9F1003E8999 /* Assets.xcassets */,
+				49D086FB274BBA3700859181 /* Debug.xcconfig */,
+				49D086FD274BBA6800859181 /* Deployment.xcconfig */,
+				49D086FE274BBA8400859181 /* Release.xcconfig */,
+				49D086FC274BBA4A00859181 /* Shared.xcconfig */,
+				49D086FF274BBA9C00859181 /* VirtualApple.xcconfig */,
+			);
+			path = VirtualApple;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		493243FA2749D9F0003E8999 /* VirtualApple */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4932440D2749D9F1003E8999 /* Build configuration list for PBXNativeTarget "VirtualApple" */;
+			buildPhases = (
+				493243F72749D9F0003E8999 /* Sources */,
+				493243F82749D9F0003E8999 /* Frameworks */,
+				493243F92749D9F0003E8999 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VirtualApple;
+			productName = VirtualApple;
+			productReference = 493243FB2749D9F0003E8999 /* VirtualApple.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		493243F32749D9F0003E8999 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					493243FA2749D9F0003E8999 = {
+						CreatedOnToolsVersion = 13.2;
+					};
+				};
+			};
+			buildConfigurationList = 493243F62749D9F0003E8999 /* Build configuration list for PBXProject "VirtualApple" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 493243F22749D9F0003E8999;
+			productRefGroup = 493243FC2749D9F0003E8999 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				493243FA2749D9F0003E8999 /* VirtualApple */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		493243F92749D9F0003E8999 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				493244052749D9F1003E8999 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		493243F72749D9F0003E8999 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49D086FA274A7C3400859181 /* InstallViewController.swift in Sources */,
+				49F82D4C274A0D98004D986D /* ViewController.swift in Sources */,
+				49D08703274BBDF000859181 /* LabeledSlider.swift in Sources */,
+				49D08701274BBD6300859181 /* Menu.swift in Sources */,
+				495E100A2856AEE80034F53F /* ConcurrencyShims.swift in Sources */,
+				49F82D422749E80C004D986D /* main.swift in Sources */,
+				4969636D274C98AE00339822 /* FixedSize.swift in Sources */,
+				49F82D4E274A21C5004D986D /* ConfigurationViewController.swift in Sources */,
+				49F82D48274A0CC5004D986D /* WindowController.swift in Sources */,
+				49D08705274BBE2A00859181 /* Toolbar.swift in Sources */,
+				49F82D46274A0609004D986D /* VirtualMachine.swift in Sources */,
+				493243FF2749D9F0003E8999 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4932440B2749D9F1003E8999 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49D086FB274BBA3700859181 /* Debug.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		4932440C2749D9F1003E8999 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49D086FE274BBA8400859181 /* Release.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		4932440E2749D9F1003E8999 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49D086FF274BBA9C00859181 /* VirtualApple.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		4932440F2749D9F1003E8999 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49D086FF274BBA9C00859181 /* VirtualApple.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		493243F62749D9F0003E8999 /* Build configuration list for PBXProject "VirtualApple" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4932440B2749D9F1003E8999 /* Debug */,
+				4932440C2749D9F1003E8999 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4932440D2749D9F1003E8999 /* Build configuration list for PBXNativeTarget "VirtualApple" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4932440E2749D9F1003E8999 /* Debug */,
+				4932440F2749D9F1003E8999 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 493243F32749D9F0003E8999 /* Project object */;
+}

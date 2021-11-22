@@ -1,0 +1,12 @@
+//
+//  Deployment.xcconfig
+//  VirtualApple
+//
+//  Created by Saagar Jha on 11/22/21.
+//
+
+CODE_SIGN_IDENTITY = -
+CURRENT_PROJECT_VERSION = 1
+DEVELOPMENT_TEAM = X4A9GH5NN2
+MACOSX_DEPLOYMENT_TARGET = 12.0
+MARKETING_VERSION = 1.0
