@@ -1,0 +1,18 @@
+//
+//  VirtualApple.xcconfig
+//  VirtualApple
+//
+//  Created by Saagar Jha on 11/22/21.
+//
+
+ARCHS = arm64
+ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon
+CODE_SIGN_ENTITLEMENTS = $(PRODUCT_NAME)/$(PRODUCT_NAME).entitlements
+COMBINE_HIDPI_IMAGES = YES
+GENERATE_INFOPLIST_FILE = YES
+INFOPLIST_FILE = $(PRODUCT_NAME)/Info.plist
+INFOPLIST_KEY_NSPrincipalClass = NSApplication
+LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/../Frameworks
+PRODUCT_BUNDLE_IDENTIFIER = com.saagarjha.$(PRODUCT_NAME)
+PRODUCT_NAME = $(TARGET_NAME)
+SWIFT_EMIT_LOC_STRINGS = YES
