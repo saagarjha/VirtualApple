@@ -213,7 +213,7 @@ class ConfigurationController: NSViewController, NSTextFieldDelegate {
 	
 	@IBAction func save(_ sender: NSButton) throws {
 		virtualMachine.metadata.configuration = Configuration(
-			cpuCount: cpuCounts[cpuCountSlider.tickValue],
+			cpuCount: cpuCounts[cpuCountSlider.tickValue - 1],
 			memorySize: memories[memorySlider.tickValue],
 			screenWidth: Int(screenWidthTextField.stringValue)!,
 			screenHeight: Int(screenHeightTextField.stringValue)!,
