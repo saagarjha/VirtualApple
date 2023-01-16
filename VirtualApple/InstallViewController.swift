@@ -96,10 +96,8 @@ class InstallViewController: NSViewController, NSTextFieldDelegate {
 		diskSizeTextField.isEnabled = !installing
 	}
 
-	@IBAction nonisolated func controlTextDidChange(_ obj: Notification) {
-		unsafelyRunOnMainActor {
-			validateUI()
-		}
+	@IBAction func controlTextDidChange(_ obj: Notification) {
+		validateUI()
 	}
 
 	@IBAction func ipswSelected(_ sender: NSPathControl) {

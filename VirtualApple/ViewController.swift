@@ -60,29 +60,25 @@ class ViewController: NSViewController, NSToolbarItemValidation, NSMenuItemValid
 		}.presentErrorIfNecessary(window: view.window!)
 	}
 
-	nonisolated func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
-		unsafelyRunOnMainActor {
-			switch menuItem.action {
-				case #selector(run(_:)):
-					return !virtualMachine.running
-				case #selector(stop(_:)):
-					return virtualMachine.running
-				default:
-					preconditionFailure()
-			}
+	func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+		switch menuItem.action {
+			case #selector(run(_:)):
+				return !virtualMachine.running
+			case #selector(stop(_:)):
+				return virtualMachine.running
+			default:
+				preconditionFailure()
 		}
 	}
 
-	nonisolated func validateToolbarItem(_ item: NSToolbarItem) -> Bool {
-		unsafelyRunOnMainActor {
-			switch ToolbarIdentifiers(item.itemIdentifier)! {
-				case .settings:
-					return !virtualMachine.running
-				case .toggleState:
-					item.image = virtualMachine.running ? NSImage(systemSymbolName: "stop", accessibilityDescription: "Stop") : NSImage(systemSymbolName: "play", accessibilityDescription: "Run")
-					view.window!.isDocumentEdited = virtualMachine.running
-					return true
-			}
+	func validateToolbarItem(_ item: NSToolbarItem) -> Bool {
+		switch ToolbarIdentifiers(item.itemIdentifier)! {
+			case .settings:
+				return !virtualMachine.running
+			case .toggleState:
+				item.image = virtualMachine.running ? NSImage(systemSymbolName: "stop", accessibilityDescription: "Stop") : NSImage(systemSymbolName: "play", accessibilityDescription: "Run")
+				view.window!.isDocumentEdited = virtualMachine.running
+				return true
 		}
 	}
 }

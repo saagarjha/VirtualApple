@@ -204,10 +204,8 @@ class ConfigurationViewController: NSViewController, NSTextFieldDelegate {
 		validateUI()
 	}
 
-	nonisolated func controlTextDidChange(_ obj: Notification) {
-		unsafelyRunOnMainActor {
-			validateUI()
-		}
+	func controlTextDidChange(_ obj: Notification) {
+		validateUI()
 	}
 
 	@IBAction func save(_ sender: NSButton) throws {

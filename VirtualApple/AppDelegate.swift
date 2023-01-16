@@ -14,38 +14,30 @@ extension UTType {
 
 @MainActor
 class AppDelegate: NSObject, NSApplicationDelegate {
-	nonisolated func applicationWillFinishLaunching(_ notification: Notification) {
-		unsafelyRunOnMainActor {
-			Self.setupMenu()
-		}
+	func applicationWillFinishLaunching(_ notification: Notification) {
+		Self.setupMenu()
 	}
 
-	nonisolated func application(_ application: NSApplication, open urls: [URL]) {
-		unsafelyRunOnMainActor {
-			for url in urls {
-				do {
-					let virtualMachine = try VirtualMachine(opening: url)
-					WindowController(virtualMachine: virtualMachine).showWindow(self)
-					NSDocumentController.shared.noteNewRecentDocumentURL(virtualMachine.url)
-				} catch {
-					NSAlert(error: error).runModal()
-				}
+	func application(_ application: NSApplication, open urls: [URL]) {
+		for url in urls {
+			do {
+				let virtualMachine = try VirtualMachine(opening: url)
+				WindowController(virtualMachine: virtualMachine).showWindow(self)
+				NSDocumentController.shared.noteNewRecentDocumentURL(virtualMachine.url)
+			} catch {
+				NSAlert(error: error).runModal()
 			}
 		}
 	}
 
-	nonisolated func applicationOpenUntitledFile(_ sender: NSApplication) -> Bool {
-		unsafelyRunOnMainActor {
-			openDocument(sender)
-		}
+	func applicationOpenUntitledFile(_ sender: NSApplication) -> Bool {
+		openDocument(sender)
 		return true
 	}
 
 	@objc
 	func newDocument(_ sender: Any?) {
-		unsafelyRunOnMainActor {
-			newVirtualMachineController()?.showWindow(self)
-		}
+		newVirtualMachineController()?.showWindow(self)
 	}
 
 	@objc
