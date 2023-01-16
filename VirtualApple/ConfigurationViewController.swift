@@ -15,6 +15,7 @@ class ConfigurationViewController: NSViewController, NSTextFieldDelegate {
 	var screenWidthTextField: NSTextField!
 	var screenHeightTextField: NSTextField!
 	var screenScaleCheckbox: NSButton!
+	var screenInformationalLabel: NSTextField!
 	var bootIntoMacOSRecoveryCheckbox: NSButton!
 	var bootIntoDFUCheckbox: NSButton!
 	var haltOnPanicCheckbox: NSButton!
@@ -73,12 +74,19 @@ class ConfigurationViewController: NSViewController, NSTextFieldDelegate {
 		if let height = virtualMachine.metadata.configuration?.screenHeight {
 			screenHeightTextField.stringValue = "\(height)"
 		}
-		screenScaleCheckbox = NSButton(checkboxWithTitle: "Retina", target: nil, action: nil)
+		screenScaleCheckbox = NSButton(checkboxWithTitle: "Retina", target: self, action: #selector(retinaChanged(_:)))
 		if let scale = virtualMachine.metadata.configuration?.screenScale {
 			screenScaleCheckbox.state = scale > 1 ? .on : .off
 		}
-		let screenStackView = NSStackView(fixedSizeViews: [screenLabel, screenWidthTextField, screenMutiplicationLabel, screenHeightTextField, screenScaleCheckbox])
-		screenStackView.alignment = .firstBaseline
+		let innerScreenStackView = NSStackView(fixedSizeViews: [screenWidthTextField, screenMutiplicationLabel, screenHeightTextField, screenScaleCheckbox])
+		innerScreenStackView.alignment = .firstBaseline
+		screenInformationalLabel = NSTextField(wrappingLabelWithString: "Measured in points.")
+		screenInformationalLabel.textColor = .secondaryLabelColor
+		screenInformationalLabel.font = .systemFont(ofSize: NSFont.systemFontSize(for: .small))
+		let screenItemsStackView = NSStackView(fixedSizeViews: [innerScreenStackView, screenInformationalLabel])
+		screenItemsStackView.orientation = .vertical
+		screenItemsStackView.alignment = .leading
+		let screenStackView = NSStackView(fixedSizeViews: [screenLabel, screenItemsStackView])
 
 		let bootLabel = NSTextField(labelWithString: "Boot:")
 		bootIntoMacOSRecoveryCheckbox = NSButton(checkboxWithTitle: "Into macOS Recovery", target: nil, action: nil)
@@ -131,7 +139,7 @@ class ConfigurationViewController: NSViewController, NSTextFieldDelegate {
 			wrappingLabelWithString:
 				"Starting a virtual machine with the GDB stub requires passing a check (run by the VirtualMachine XPC service) against this process for the com.apple.private.virtualization entitlement.")
 		debugInformationalLabel.textColor = .secondaryLabelColor
-		debugInformationalLabel.font = NSFont.systemFont(ofSize: NSFont.systemFontSize(for: .small))
+		debugInformationalLabel.font = .systemFont(ofSize: NSFont.systemFontSize(for: .small))
 		let debugItemsStackView = NSStackView(fixedSizeViews: [innerDebugStackView, debugInformationalLabel])
 		debugItemsStackView.orientation = .vertical
 		debugItemsStackView.alignment = .leading
@@ -177,9 +185,10 @@ class ConfigurationViewController: NSViewController, NSTextFieldDelegate {
 			cpuCountSlider.widthAnchor.constraint(equalTo: memorySlider.widthAnchor),
 			screenWidthTextField.widthAnchor.constraint(equalToConstant: 64),
 			screenHeightTextField.widthAnchor.constraint(equalToConstant: 64),
+			screenLabel.firstBaselineAnchor.constraint(equalTo: innerScreenStackView.firstBaselineAnchor),
 			haltLabel.firstBaselineAnchor.constraint(equalTo: haltOnPanicCheckbox.firstBaselineAnchor),
 			debugPortTextField.widthAnchor.constraint(equalToConstant: 64),
-			debugLabel.firstBaselineAnchor.constraint(equalTo: debugCheckbox.firstBaselineAnchor),
+			debugLabel.firstBaselineAnchor.constraint(equalTo: innerDebugStackView.firstBaselineAnchor),
 			debugInformationalLabel.widthAnchor.constraint(lessThanOrEqualTo: cpuCountSlider.widthAnchor),
 			saveButton.widthAnchor.constraint(equalToConstant: 64),
 			saveButton.topAnchor.constraint(equalToSystemSpacingBelow: optionsStackView.bottomAnchor, multiplier: 1),
@@ -195,9 +204,21 @@ class ConfigurationViewController: NSViewController, NSTextFieldDelegate {
 	}
 
 	func validateUI() {
+		let scale = screenScaleCheckbox.state == .on ? 2 : 1
+		let width = Int(screenWidthTextField.stringValue)
+		let height = Int(screenHeightTextField.stringValue)
+		if let width, let height {
+			screenInformationalLabel.stringValue = "Measured in points. Exposed to the guest as a \(width * scale)×\(height * scale) \(screenScaleCheckbox.state == .on ? "HiDPI" : "LoDPI") display."
+		} else {
+			screenInformationalLabel.stringValue = "Measured in points."
+		}
 		debugPortTextField.isEnabled = debugCheckbox.state == .on
 		saveButton.isEnabled =
-			Int(screenWidthTextField.stringValue) != nil && Int(screenHeightTextField.stringValue) != nil && (!debugPortTextField.isEnabled || Int(debugPortTextField.stringValue) != nil)
+			width != nil && height != nil && (!debugPortTextField.isEnabled || Int(debugPortTextField.stringValue) != nil)
+	}
+	
+	@IBAction func retinaChanged(_ sender: NSButton) {
+		validateUI()
 	}
 
 	@IBAction func debugChanged(_ sender: NSButton) {
