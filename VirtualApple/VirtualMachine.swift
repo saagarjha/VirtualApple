@@ -132,7 +132,7 @@ class VirtualMachine: NSObject, VZVirtualMachineDelegate {
 
 		vmConfiguration.keyboards = [VZUSBKeyboardConfiguration()]
 		if #available(macOS 13, *) {
-			vmConfiguration.pointingDevices = [VZMacTrackpadConfiguration()]
+			vmConfiguration.pointingDevices = [VZUSBScreenCoordinatePointingDeviceConfiguration(), VZMacTrackpadConfiguration()]
 		} else {
 			vmConfiguration.pointingDevices = [VZUSBScreenCoordinatePointingDeviceConfiguration()]
 		}
