@@ -142,6 +142,19 @@ class VirtualMachine: NSObject, VZVirtualMachineDelegate {
 		vmConfiguration.networkDevices = [network]
 		vmConfiguration.storageDevices = [VZVirtioBlockDeviceConfiguration(attachment: try VZDiskImageStorageDeviceAttachment(url: url.appendingPathComponent("disk.img"), readOnly: false))]
 
+        //sound
+        let outputStream = VZVirtioSoundDeviceOutputStreamConfiguration()
+        outputStream.sink = VZHostAudioOutputStreamSink()
+        let outputSoundDevice = VZVirtioSoundDeviceConfiguration()
+        outputSoundDevice.streams = [outputStream]
+
+        let inputStream = VZVirtioSoundDeviceInputStreamConfiguration()
+        inputStream.source = VZHostAudioInputStreamSource()
+        let inputSoundDevice = VZVirtioSoundDeviceConfiguration()
+        inputSoundDevice.streams = [inputStream]
+
+        vmConfiguration.audioDevices = [outputSoundDevice, inputSoundDevice]
+        
 		if let debugPort = configuration.debugPort {
 			let debugStub = unsafeBitCast(NSClassFromString("_VZGDBDebugStubConfiguration")!, to: _VZGDBDebugStubConfiguration.Type.self).init(port: debugPort)
 			unsafeBitCast(vmConfiguration, to: _VZVirtualMachineConfiguration.self)._debugStub = debugStub
